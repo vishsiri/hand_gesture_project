@@ -16,7 +16,10 @@ app = Flask(__name__)
 mp_holistic = mp.solutions.holistic
 mp_drawing = mp.solutions.drawing_utils
 
-actions = np.array(['hello', 'thanks', 'iloveyou'])
+
+#กำหนดรหัส
+actions = np.array(['hello', 'thanks', 'iloveyou','twoofus'])
+
 model = Sequential()
 model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(30, 1662)))
 model.add(LSTM(128, return_sequences=True, activation='relu'))
@@ -32,8 +35,9 @@ colors = [(245, 117, 16), (117, 245, 16), (16, 117, 245)]
 # สร้างรหัสภาษาไทยที่เกี่ยวข้อง
 code_to_thai = {
     0: 'สวัสดี',
-    1: 'ขอบคุณ',
-    2: 'ฉันรักคุณ'
+    1: 'เราสองคน',
+    2: 'ฉันรักคุณ',
+    3: 'เราสองคน'
 }
 
 # สร้างฟังก์ชันเพื่อแปลงรหัสเป็นข้อความภาษาไทย
